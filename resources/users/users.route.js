@@ -1,12 +1,20 @@
 const express = require('express');
 
 const Users = require('./users.helpers');
+const auth = require("../../authController");
 
 const router = express.Router();
 
 router.route("/")
 .post(Users.create)
 .get(Users.find)
+
+router.route("/login")
+.post(auth.login)
+
+router.route("/register")
+.post(auth.register)
+
 
 
 // router.get('/', (req, res) => {

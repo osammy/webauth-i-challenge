@@ -6,8 +6,12 @@ class Generate {
         this.add = this.add.bind(this);
     }
 
-    find() {
-        return this.db;
+    find(query) {
+        if(!query) return this.db;
+
+        return db('users')
+        // .select('id', 'username')
+        .where(query);
     }
 
     findById(id) {
